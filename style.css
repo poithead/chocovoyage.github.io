@@ -7,7 +7,9 @@ body {
 }
 
 header {
-    background-color: #8b4513;
+    background-image: url('images/chocovoyage_getstarted.png'); /* Path to your image */
+    background-size: cover; /* Cover the entire header area */
+    background-position: center; /* Center the image */
     color: #fff;
     padding: 2em;
     text-align: center;
