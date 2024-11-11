@@ -7,15 +7,15 @@ body {
 }
 
 header {
-    background-image: url('images/chocovoyage_getstarted.png'); /* Path to your image */
+    background-image: url('images/chocovoyage_header.png'); /* Path to your image */
     background-size: cover;
     background-position: center;
     color: #fff;
-    height: 800px; /* Set height to match the image's height */
+    height: 300px; /* Set height to match the image's height */
     text-align: right;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: right;
+    justify-content: right;
 }
 
 h1 {
