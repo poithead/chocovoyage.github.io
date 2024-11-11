@@ -11,8 +11,8 @@ header {
     background-size: cover;
     background-position: center;
     color: #fff;
-    height: 741px; /* Set height to match the image's height */
-    text-align: center;
+    height: 800px; /* Set height to match the image's height */
+    text-align: right;
     display: flex;
     align-items: center;
     justify-content: center;
