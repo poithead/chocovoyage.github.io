@@ -15,7 +15,7 @@ header {
     text-align: right;
     display: flex;
     align-items: right;
-    justify-content: right;
+    /* justify-content: right; */
 }
 
 h1 {
