@@ -14,8 +14,8 @@ header {
     height: 300px; /* Set height to match the image's height */
     text-align: right;
     display: flex;
-    /* align-items: right; */
-    /* justify-content: right; */
+    align-items: right;
+    justify-content: right;
 }
 
 h1 {
