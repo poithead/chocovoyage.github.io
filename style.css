@@ -1,47 +1,101 @@
-body {
-    font-family: roboto;
+/* General Styling */
+body, h1, h2, p, ul, li {
     margin: 0;
     padding: 0;
-    color: #333;
-    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
 }
 
-header {
-    background-image: url('images/chocovoyage_header.png'); /* Path to your image */
+/* Navigation Bar */
+#navbar {
+    background-color: #fff;
+    padding: 1em 0;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+#navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+}
+
+#navbar li {
+    display: inline;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/* Hero Section */
+#hero {
+    background-image: url('images/chocovoyage_header.png'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     color: #fff;
-    height: 300px; /* Set height to match the image's height */
-    text-align: right;
+    height: 400px; /* Adjust the height as needed */
     display: flex;
-    flex-direction: column; /* Stacks items vertically */
-    align-items: flex-end; /* Aligns items to the right */
-    justify-content: center; /* Centers items vertically within the header */
-}
-
-h1 {
-    font-size: 2.5em;
-    margin: 0;
-}
-
-section#about {
-    padding: 2em;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-section#recipes {
-    padding: 2em;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-footer {
-    background-color: #2f0d05;
-    color: #fff;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    font-size: 2em;
 }
+
+#hero h1 {
+    margin: 0;
+    padding: 0 1em;
+    max-width: 80%;
+    font-weight: 700;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Makes text more readable */
+}
+
+/* Featured Products Section */
+#featured-products {
+    text-align: center;
+    padding: 2em;
+}
+
+#featured-products h2 {
+    font-size: 1.8em;
+    margin-bottom: 1em;
+}
+
+.product-list {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.product {
+    text-align: center;
+    max-width: 200px;
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+#featured-products button {
+    background-color: #000;
+    color: #fff;
+    padding: 0.5em 2em;
+    margin-top: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#featured-products button:hover {
+    background-color: #333;
+}
+
