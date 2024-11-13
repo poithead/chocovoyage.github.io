@@ -218,6 +218,7 @@ body, h1, h2, p, ul, li {
         
         #send-button:hover {
             background-color: #005bb5;
+            font-family: Roboto;
         }
 
         /* Chat Launcher Icon */
