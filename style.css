@@ -114,7 +114,7 @@ body, h1, h2, p, ul, li {
             justify-content: space-between;
             overflow: hidden;
             animation: fadeIn 0.3s ease;
-            font-family: Arial, sans-serif;
+            font-family: Roboto;
         }
 
         /* Chat Widget Animations */
