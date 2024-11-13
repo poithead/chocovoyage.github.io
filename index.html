@@ -46,19 +46,19 @@
         <button>Shop All</button>
     </section>
 
-     <!-- Chat launcher button -->
+ <!-- Chat Launcher Button -->
     <div id="chat-launcher">
         <span id="chat-launcher-icon">&#128172;</span>
     </div>
 
-    <!-- Chat widget -->
+    <!-- Chat Widget -->
     <div id="chat-widget">
         <div id="chat-header">
             Chat with Us
             <button id="close-chat">&#10005;</button>
         </div>
         <div id="chat-messages">
-            <!-- Chat messages will be dynamically added here -->
+            <!-- Chat messages will appear here -->
         </div>
         <div id="chat-input-area">
             <textarea id="user-message" rows="1" placeholder="Type your message..."></textarea>
@@ -85,6 +85,15 @@
             chatLauncher.style.display = "flex";
         });
 
+        // Function to display messages in chat
+        function displayMessage(text, sender) {
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'agent-message');
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
         // Send message function
         async function sendMessage() {
             const message = userMessageInput.value.trim();
@@ -93,48 +102,22 @@
                 return;
             }
 
-            // Display user message in chat
-            const userMessageDiv = document.createElement("div");
-            userMessageDiv.textContent = message;
-            userMessageDiv.style.backgroundColor = "#e0e0e0";
-            userMessageDiv.style.padding = "8px";
-            userMessageDiv.style.borderRadius = "4px";
-            userMessageDiv.style.marginBottom = "10px";
-            userMessageDiv.style.alignSelf = "flex-end";
-            chatMessages.appendChild(userMessageDiv);
+            // Display user message
+            displayMessage(message, 'user');
+            userMessageInput.value = '';
 
-            // Clear input
-            userMessageInput.value = "";
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            // Send message to AWS Lambda
             try {
                 const response = await fetch('https://your-lambda-url.amazonaws.com/default/YourLambdaFunction', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ message })
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'sendMessage', message, sessionId })
                 });
 
-                if (response.ok) {
-                    const responseData = await response.json();
-                    // Display response message in chat
-                    const botMessageDiv = document.createElement("div");
-                    botMessageDiv.textContent = "Message sent to support.";
-                    botMessageDiv.style.backgroundColor = "#007bff";
-                    botMessageDiv.style.color = "#fff";
-                    botMessageDiv.style.padding = "8px";
-                    botMessageDiv.style.borderRadius = "4px";
-                    botMessageDiv.style.marginBottom = "10px";
-                    botMessageDiv.style.alignSelf = "flex-start";
-                    chatMessages.appendChild(botMessageDiv);
-                } else {
-                    alert("Failed to send message.");
-                }
+                // Display confirmation or bot response
+                displayMessage("Message sent to support.", 'agent');
             } catch (error) {
                 console.error("Error:", error);
-                alert("An error occurred. Please try again.");
+                displayMessage("Error sending message. Please try again.", 'agent');
             }
         }
 
@@ -143,13 +126,12 @@
 
         // Send message on Enter key press
         userMessageInput.addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
+            if (event.key === "Enter" && !event.shiftKey) {
                 event.preventDefault();
                 sendMessage();
             }
         });
     </script>
-
 </body>
 </html>
 
