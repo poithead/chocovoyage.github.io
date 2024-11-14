@@ -6,18 +6,27 @@ body, h1, h2, p, ul, li {
 }
 
 /* Navigation Bar */
+/* Updated Navigation Bar */
 #navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #fff;
+    padding: 2em 0; /* Increase padding to double the height */
+    border-bottom: 1px solid #ddd;
     position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
 }
 
 #navbar ul {
-    flex-grow: 1;
+    list-style-type: none;
     display: flex;
+    gap: 3em; /* Increase gap to spread out items */
+    flex-grow: 1;
     justify-content: center;
+    margin: 0;
 }
+
 #navbar li {
     display: inline;
 }
@@ -26,7 +35,7 @@ body, h1, h2, p, ul, li {
     text-decoration: none;
     color: #000;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.1em; /* Slightly larger font size */
 }
 
 /* Hero Section */
@@ -245,6 +254,7 @@ body, h1, h2, p, ul, li {
 
 
 
+/* Position the switch to the far right */
 .switch {
     display: flex;
     align-items: center;
@@ -253,8 +263,7 @@ body, h1, h2, p, ul, li {
     font-weight: 500;
     color: #000;
     font-family: 'Poppins', 'Roboto', sans-serif;
-    position: absolute;
-    right: 2em;
+    margin-right: 2em; /* Adds margin to align it to the right side */
 }
 
 .switch input[type="checkbox"] {
