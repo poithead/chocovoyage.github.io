@@ -111,35 +111,36 @@
         document.getElementById("send-button").addEventListener("click", sendMessage);
 
         async function sendMessage() {
-            const message = userMessageInput.value.trim();
-            if (!message) {
-                alert("Please enter a message.");
-                return;
-            }
+    const message = userMessageInput.value.trim();
+    if (!message) {
+        alert("Please enter a message.");
+        return;
+    }
 
-            displayMessage(message, 'user');
-            userMessageInput.value = '';
+    displayMessage(message, 'user');
+    userMessageInput.value = '';
 
-            try {
-                const response = await fetch(lambdaUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ sessionId, message, user: "user-id" }),
-                    mode: 'cors' // CORS mode
-                });
+    try {
+        const response = await fetch(lambdaUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sessionId, message, user: "user-id" }),
+            mode: 'cors'
+        });
 
-                const responseData = await response.json();
+        const responseData = await response.json();
 
-                if (responseData.success && responseData.message && responseData.message.text) {
-                    displayMessage(responseData.message.text, 'agent'); // Display agent's response
-                } else {
-                    throw new Error("No valid response from agent");
-                }
-            } catch (error) {
-                console.error("Error:", error);
-                displayMessage("Error sending message. Please try again.", 'agent');
-            }
+        if (responseData.success && responseData.message && responseData.message.text) {
+            displayMessage(responseData.message.text, 'agent'); // Display agent's response
+        } else {
+            throw new Error("No valid response from agent");
         }
+    } catch (error) {
+        console.error("Error:", error);
+        displayMessage("Error sending message. Please try again.", 'agent');
+    }
+}
+
 
         // Dummy displayMessage function for demonstration
         function displayMessage(text, sender) {
