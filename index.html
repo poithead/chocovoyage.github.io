@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChocoVoyage</title>
-
+    
     <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     
     <!-- Import Google Fonts: Poppins with Roboto as a fallback -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -20,20 +20,20 @@
 
     <!-- Navigation Bar -->
     <nav id="navbar">
-    <ul>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Cart</a></li>
-        <li>
-            <label class="switch">
-                <span>Custom Messaging</span>
-                <input type="checkbox" id="messaging-toggle">
-                <span class="slider"></span>
-            </label>
-        </li>
-    </ul>
-</nav>
+        <ul>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Cart</a></li>
+        </ul>
+        
+        <!-- Custom Messaging Toggle Switch -->
+        <label class="switch">
+            <span>Custom Messaging</span>
+            <input type="checkbox" id="messaging-toggle">
+            <span class="slider"></span>
+        </label>
+    </nav>
 
     <!-- Hero Section -->
     <header id="hero">
@@ -152,7 +152,6 @@
             }
         }
 
-        // Dummy displayMessage function for demonstration
         function displayMessage(text, sender) {
             const messageContainer = document.createElement("div");
             messageContainer.classList.add("message", sender === "user" ? "user-message" : "agent-message");
@@ -176,23 +175,15 @@
             }
         }
 
-        // Call pollForMessages periodically (e.g., every 5 seconds)
         setInterval(pollForMessages, 5000);
 
         // Toggle chat launcher visibility based on the slider
         messagingToggle.addEventListener("change", () => {
             chatLauncher.style.display = messagingToggle.checked ? "flex" : "none";
         });
-
-        const messagingToggle = document.getElementById("messaging-toggle");
-
-// Toggle chat launcher visibility based on the slider
-messagingToggle.addEventListener("change", () => {
-    chatLauncher.style.display = messagingToggle.checked ? "flex" : "none";
-});
     </script>
-   
 </body>
 </html>
+
 
 
