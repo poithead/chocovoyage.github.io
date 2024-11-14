@@ -74,81 +74,61 @@
         </div>
     </div>
 
-    <script>
-        const chatLauncher = document.getElementById("chat-launcher");
-        const chatWidget = document.getElementById("chat-widget");
-        const closeChat = document.getElementById("close-chat");
-        const sendButton = document.getElementById("send-button");
-        const userMessageInput = document.getElementById("user-message");
-        const chatMessages = document.getElementById("chat-messages");
+   <script>
+    let sessionId = null;
 
-        // Set the URL of the deployed Lambda function
-        const lambdaUrl = "https://d7hw4tuvig.execute-api.eu-west-1.amazonaws.com/default/gcOpenMessaging";
+    function startNewSession() {
+        sessionId = `session-${Date.now()}`;
+    }
 
-        // Toggle chat widget visibility
-        chatLauncher.addEventListener("click", () => {
-            chatWidget.style.display = "flex";
-            chatLauncher.style.display = "none";
-        });
+    function endSession() {
+        sessionId = null;
+    }
 
-        closeChat.addEventListener("click", () => {
-            chatWidget.style.display = "none";
-            chatLauncher.style.display = "flex";
-        });
+    function openChat() {
+        if (!sessionId) {
+            startNewSession();
+        }
+        chatWidget.style.display = "flex";
+        chatLauncher.style.display = "none";
+    }
 
-        // Function to display messages in chat
-        function displayMessage(text, sender) {
-            const messageDiv = document.createElement("div");
-            messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'agent-message');
-            messageDiv.textContent = text;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+    closeChat.addEventListener("click", () => {
+        chatWidget.style.display = "none";
+        chatLauncher.style.display = "flex";
+        endSession();
+    });
+
+    async function sendMessage() {
+        const message = userMessageInput.value.trim();
+        if (!message) {
+            alert("Please enter a message.");
+            return;
         }
 
-        // Send message to Lambda
-        async function sendMessage() {
-            const message = userMessageInput.value.trim();
-            if (!message) {
-                alert("Please enter a message.");
-                return;
+        displayMessage(message, 'user');
+        userMessageInput.value = '';
+
+        try {
+            const response = await fetch(lambdaUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ sessionId, message, user: "user-id" })
+            });
+
+            const responseData = await response.json();
+
+            if (responseData.success && responseData.message) {
+                displayMessage(responseData.message.text, 'agent'); // Display agent's response
+            } else {
+                throw new Error("No valid response from agent");
             }
-
-            // Display user message
-            displayMessage(message, 'user');
-            userMessageInput.value = '';
-
-            try {
-                const response = await fetch(lambdaUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ sessionId: "user-session", message, user: "guest" })
-                });
-
-                const responseData = await response.json();
-
-                // Display response from Genesys
-                if (responseData.success) {
-                    displayMessage("Response from agent: " + responseData.data.message, 'agent');
-                } else {
-                    displayMessage("Failed to send message to support.", 'agent');
-                }
-            } catch (error) {
-                console.error("Error:", error);
-                displayMessage("Error sending message. Please try again.", 'agent');
-            }
+        } catch (error) {
+            console.error("Error:", error);
+            displayMessage("Error sending message. Please try again.", 'agent');
         }
-
-        // Send message on button click
-        sendButton.addEventListener("click", sendMessage);
-
-        // Send message on Enter key press
-        userMessageInput.addEventListener("keypress", function (event) {
-            if (event.key === "Enter" && !event.shiftKey) {
-                event.preventDefault();
-                sendMessage();
-            }
-        });
-    </script>
+    }
+</script>
 </body>
 </html>
 
