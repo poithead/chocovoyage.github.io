@@ -247,3 +247,49 @@ body, h1, h2, p, ul, li {
     color: #ffffff; /* Set icon color to white */
     font-size: 24px;
 }
+
+/* Toggle Switch Styling */
+.switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 1em;
+    font-weight: 500;
+    color: #000; /* Text color for the label */
+    font-family: 'Poppins', 'Roboto', sans-serif;
+}
+
+.switch input[type="checkbox"] {
+    display: none;
+}
+
+.switch .slider {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc; /* Background color when off */
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.switch .slider::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+.switch input[type="checkbox"]:checked + .slider {
+    background-color: #160b09; /* Dark background color when on */
+}
+
+.switch input[type="checkbox"]:checked + .slider::before {
+    transform: translateX(20px);
+}
+
