@@ -89,18 +89,22 @@ body, h1, h2, p, ul, li {
 }
 
 #featured-products button {
-    background-color: #000;
+    background-color: #160b09; /* Dark color to match the page theme */
     color: #fff;
-    padding: 0.5em 2em;
+    padding: 0.6em 2em;
     margin-top: 1em;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px; /* Increase border-radius for a more rounded look */
     cursor: pointer;
-    font-weight: bold;
+    font-family: 'Poppins', 'Roboto', sans-serif; /* Ensure Poppins font is applied */
+    font-weight: 500;
+    font-size: 1em;
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transition for hover effects */
 }
 
 #featured-products button:hover {
-    background-color: #333;
+    background-color: #331a14; /* Slightly lighter color on hover */
+    transform: scale(1.05); /* Subtle scaling effect on hover */
 }
 
 #shop-all-btn:hover {
