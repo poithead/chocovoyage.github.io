@@ -121,7 +121,7 @@
                 const response = await fetch(lambdaUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ sessionId: "user-session", message })
+                    body: JSON.stringify({ sessionId: "user-session", message, user: "guest" })
                 });
 
                 const responseData = await response.json();
