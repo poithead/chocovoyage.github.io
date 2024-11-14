@@ -7,22 +7,17 @@ body, h1, h2, p, ul, li {
 
 /* Navigation Bar */
 #navbar {
-    background-color: #fff;
-    padding: 1em 0;
-    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: sticky;
-    top: 0;
-    z-index: 1000;
-    text-align: center;
 }
 
 #navbar ul {
-    list-style-type: none;
+    flex-grow: 1;
     display: flex;
-    gap: 2em;
     justify-content: center;
 }
-
 #navbar li {
     display: inline;
 }
@@ -248,15 +243,18 @@ body, h1, h2, p, ul, li {
     font-size: 24px;
 }
 
-/* Toggle Switch Styling */
+
+
 .switch {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 0.5em;
-    font-size: 1em;
+    font-size: 14px;
     font-weight: 500;
-    color: #000; /* Text color for the label */
+    color: #000;
     font-family: 'Poppins', 'Roboto', sans-serif;
+    position: absolute;
+    right: 2em;
 }
 
 .switch input[type="checkbox"] {
@@ -267,7 +265,7 @@ body, h1, h2, p, ul, li {
     position: relative;
     width: 40px;
     height: 20px;
-    background-color: #ccc; /* Background color when off */
+    background-color: #ccc;
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -286,7 +284,7 @@ body, h1, h2, p, ul, li {
 }
 
 .switch input[type="checkbox"]:checked + .slider {
-    background-color: #160b09; /* Dark background color when on */
+    background-color: #160b09;
 }
 
 .switch input[type="checkbox"]:checked + .slider::before {
