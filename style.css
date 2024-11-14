@@ -192,10 +192,6 @@ body, h1, h2, p, ul, li {
     border-bottom-left-radius: 0px;
 }
 
-#user-message {
-    font-family: 'Poppins', 'Roboto', sans-serif;
-}
-
 /* Chat Input Area */
 #chat-input-area {
     display: flex;
@@ -209,11 +205,12 @@ body, h1, h2, p, ul, li {
 #user-message {
     flex-grow: 1;
     padding: 10px;
-    font-size: 14px;
+    font-size: 12px;
     border: 1px solid #ddd;
     border-radius: 16px;
     outline: none;
     resize: none;
+    font-family: 'Poppins', 'Roboto', sans-serif;
 }
 
 /* Send Button */
