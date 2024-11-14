@@ -56,7 +56,7 @@
 
     <!-- Chat Launcher Button -->
     <div id="chat-launcher">
-        <i id="chat-launcher-icon" class="fas fa-comment"></i>
+    <i id="chat-launcher-icon" class="fa-regular fa-message"></i>
     </div>
 
     <!-- Chat Widget -->
@@ -74,7 +74,13 @@
         </div>
     </div>
 
-   <script>
+  <script>
+    const chatWidget = document.getElementById("chat-widget");
+    const chatLauncher = document.getElementById("chat-launcher");
+    const closeChat = document.getElementById("close-chat");
+    const userMessageInput = document.getElementById("user-message");
+    const lambdaUrl = "https://your-lambda-function-url"; // Replace with actual Lambda URL
+
     let sessionId = null;
 
     function startNewSession() {
@@ -92,6 +98,10 @@
         chatWidget.style.display = "flex";
         chatLauncher.style.display = "none";
     }
+
+
+    // Add event listener for opening chat
+    chatLauncher.addEventListener("click", openChat);
 
     closeChat.addEventListener("click", () => {
         chatWidget.style.display = "none";
@@ -128,7 +138,16 @@
             displayMessage("Error sending message. Please try again.", 'agent');
         }
     }
+
+    // Dummy displayMessage function (assuming this exists)
+    function displayMessage(text, sender) {
+        const messageContainer = document.createElement("div");
+        messageContainer.classList.add("message", sender === "user" ? "user-message" : "agent-message");
+        messageContainer.textContent = text;
+        document.getElementById("chat-messages").appendChild(messageContainer);
+    }
 </script>
+
 </body>
 </html>
 
