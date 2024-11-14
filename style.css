@@ -99,6 +99,11 @@ body, h1, h2, p, ul, li {
     background-color: #333;
 }
 
+#shop-all-btn:hover {
+    background-color: #331a14;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+}
+
 /* Chat Widget Container */
 #chat-widget {
     position: fixed;
