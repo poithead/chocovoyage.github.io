@@ -6,7 +6,7 @@
     <title>ChocoVoyage</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="x-icon">
     
     <!-- Import Google Fonts: Poppins with Roboto as a fallback -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -92,13 +92,17 @@
         const lambdaUrl = "https://d7hw4tuvig.execute-api.eu-west-1.amazonaws.com/default/gcOpenMessaging"; // Replace with actual Lambda URL
 
         let sessionId = null;
+        let messageSentInSession = false; // Track if a message has been sent in the current session
+        let pollingInterval;
 
         function startNewSession() {
             sessionId = `session-${Date.now()}`;
+            messageSentInSession = false; // Reset the flag for the new session
         }
 
         function endSession() {
             sessionId = null;
+            messageSentInSession = false;
         }
 
         function openChat() {
@@ -109,17 +113,40 @@
             chatLauncher.style.display = "none";
         }
 
-        // Event listener for opening chat
-        chatLauncher.addEventListener("click", openChat);
-
         closeChat.addEventListener("click", () => {
             chatWidget.style.display = "none";
             chatLauncher.style.display = "flex";
             endSession();
+            stopPolling(); // Stop polling when the chat widget is closed
         });
 
-        // Event listener for the send button
-        document.getElementById("send-button").addEventListener("click", sendMessage);
+        // Start polling only if both conditions are met
+        function startPolling() {
+            if (messagingToggle.checked && messageSentInSession) {
+                pollingInterval = setInterval(pollForMessages, 5000);
+            }
+        }
+
+        // Stop polling
+        function stopPolling() {
+            if (pollingInterval) {
+                clearInterval(pollingInterval);
+                pollingInterval = null;
+            }
+        }
+
+        // Toggle chat launcher visibility and stop polling if slider is off
+        messagingToggle.addEventListener("change", () => {
+            chatLauncher.style.display = messagingToggle.checked ? "flex" : "none";
+            if (!messagingToggle.checked) {
+                stopPolling();
+            } else if (messageSentInSession) {
+                startPolling();
+            }
+        });
+
+        // Event listener for opening chat
+        chatLauncher.addEventListener("click", openChat);
 
         async function sendMessage() {
             const message = userMessageInput.value.trim();
@@ -146,17 +173,16 @@
                 } else {
                     throw new Error("No valid response from agent");
                 }
+
+                // Mark that a message has been sent in this session and start polling if slider is on
+                messageSentInSession = true;
+                if (messagingToggle.checked) {
+                    startPolling();
+                }
             } catch (error) {
                 console.error("Error:", error);
                 displayMessage("Error sending message. Please try again.", 'agent');
             }
-        }
-
-        function displayMessage(text, sender) {
-            const messageContainer = document.createElement("div");
-            messageContainer.classList.add("message", sender === "user" ? "user-message" : "agent-message");
-            messageContainer.textContent = text;
-            document.getElementById("chat-messages").appendChild(messageContainer);
         }
 
         async function pollForMessages() {
@@ -175,12 +201,12 @@
             }
         }
 
-        setInterval(pollForMessages, 5000);
-
-        // Toggle chat launcher visibility based on the slider
-        messagingToggle.addEventListener("change", () => {
-            chatLauncher.style.display = messagingToggle.checked ? "flex" : "none";
-        });
+        function displayMessage(text, sender) {
+            const messageContainer = document.createElement("div");
+            messageContainer.classList.add("message", sender === "user" ? "user-message" : "agent-message");
+            messageContainer.textContent = text;
+            document.getElementById("chat-messages").appendChild(messageContainer);
+        }
     </script>
 </body>
 </html>
