@@ -149,6 +149,26 @@
             messageContainer.textContent = text;
             document.getElementById("chat-messages").appendChild(messageContainer);
         }
+
+     async function pollForMessages() {
+    try {
+        const response = await fetch(`${lambdaUrl}?sessionId=${sessionId}`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+
+        if (data.messages && data.messages.length > 0) {
+            data.messages.forEach(message => displayMessage(message.text, 'agent'));
+        }
+    } catch (error) {
+        console.error("Error polling for messages:", error);
+    }
+}
+
+// Call pollForMessages periodically (e.g., every 5 seconds)
+setInterval(pollForMessages, 5000);
+
     </script>
 
 
