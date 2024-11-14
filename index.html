@@ -17,13 +17,20 @@
 
     <!-- Navigation Bar -->
     <nav id="navbar">
-        <ul>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Cart</a></li>
-        </ul>
-    </nav>
+    <ul>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Cart</a></li>
+        <li>
+            <label class="switch">
+                <span>Custom Messaging</span>
+                <input type="checkbox" id="messaging-toggle">
+                <span class="slider"></span>
+            </label>
+        </li>
+    </ul>
+</nav>
 
     <!-- Hero Section -->
     <header id="hero">
@@ -54,7 +61,7 @@
     </section>
 
     <!-- Chat Launcher Button -->
-    <div id="chat-launcher">
+    <div id="chat-launcher" style="display: none;">
         <i id="chat-launcher-icon" class="far fa-comment-alt"></i>
     </div>
 
@@ -73,14 +80,15 @@
         </div>
     </div>
 
- <script>
-    const chatWidget = document.getElementById("chat-widget");
-    const chatLauncher = document.getElementById("chat-launcher");
-    const closeChat = document.getElementById("close-chat");
-    const userMessageInput = document.getElementById("user-message");
-    const lambdaUrl = "https://d7hw4tuvig.execute-api.eu-west-1.amazonaws.com/default/gcOpenMessaging"; // Replace with actual Lambda URL
+    <script>
+        const chatWidget = document.getElementById("chat-widget");
+        const chatLauncher = document.getElementById("chat-launcher");
+        const closeChat = document.getElementById("close-chat");
+        const userMessageInput = document.getElementById("user-message");
+        const messagingToggle = document.getElementById("messaging-toggle");
+        const lambdaUrl = "https://d7hw4tuvig.execute-api.eu-west-1.amazonaws.com/default/gcOpenMessaging"; // Replace with actual Lambda URL
 
-   let sessionId = null;
+        let sessionId = null;
 
         function startNewSession() {
             sessionId = `session-${Date.now()}`;
@@ -111,36 +119,35 @@
         document.getElementById("send-button").addEventListener("click", sendMessage);
 
         async function sendMessage() {
-    const message = userMessageInput.value.trim();
-    if (!message) {
-        alert("Please enter a message.");
-        return;
-    }
+            const message = userMessageInput.value.trim();
+            if (!message) {
+                alert("Please enter a message.");
+                return;
+            }
 
-    displayMessage(message, 'user');
-    userMessageInput.value = '';
+            displayMessage(message, 'user');
+            userMessageInput.value = '';
 
-    try {
-        const response = await fetch(lambdaUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ sessionId, message, user: "user-id" }),
-            mode: 'cors'
-        });
+            try {
+                const response = await fetch(lambdaUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ sessionId, message, user: "user-id" }),
+                    mode: 'cors'
+                });
 
-        const responseData = await response.json();
+                const responseData = await response.json();
 
-        if (responseData.success && responseData.message && responseData.message.text) {
-            displayMessage(responseData.message.text, 'agent'); // Display agent's response
-        } else {
-            throw new Error("No valid response from agent");
+                if (responseData.success && responseData.message && responseData.message.text) {
+                    displayMessage(responseData.message.text, 'agent'); // Display agent's response
+                } else {
+                    throw new Error("No valid response from agent");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                displayMessage("Error sending message. Please try again.", 'agent');
+            }
         }
-    } catch (error) {
-        console.error("Error:", error);
-        displayMessage("Error sending message. Please try again.", 'agent');
-    }
-}
-
 
         // Dummy displayMessage function for demonstration
         function displayMessage(text, sender) {
@@ -150,28 +157,39 @@
             document.getElementById("chat-messages").appendChild(messageContainer);
         }
 
-     async function pollForMessages() {
-    try {
-        const response = await fetch(`${lambdaUrl}?sessionId=${sessionId}`, {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        });
-        const data = await response.json();
+        async function pollForMessages() {
+            try {
+                const response = await fetch(`${lambdaUrl}?sessionId=${sessionId}`, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' },
+                });
+                const data = await response.json();
 
-        if (data.messages && data.messages.length > 0) {
-            data.messages.forEach(message => displayMessage(message.text, 'agent'));
+                if (data.messages && data.messages.length > 0) {
+                    data.messages.forEach(message => displayMessage(message.text, 'agent'));
+                }
+            } catch (error) {
+                console.error("Error polling for messages:", error);
+            }
         }
-    } catch (error) {
-        console.error("Error polling for messages:", error);
-    }
-}
 
-// Call pollForMessages periodically (e.g., every 5 seconds)
-setInterval(pollForMessages, 5000);
+        // Call pollForMessages periodically (e.g., every 5 seconds)
+        setInterval(pollForMessages, 5000);
 
+        // Toggle chat launcher visibility based on the slider
+        messagingToggle.addEventListener("change", () => {
+            chatLauncher.style.display = messagingToggle.checked ? "flex" : "none";
+        });
+
+        const messagingToggle = document.getElementById("messaging-toggle");
+
+// Toggle chat launcher visibility based on the slider
+messagingToggle.addEventListener("change", () => {
+    chatLauncher.style.display = messagingToggle.checked ? "flex" : "none";
+});
     </script>
-
-
+   
 </body>
 </html>
+
 
