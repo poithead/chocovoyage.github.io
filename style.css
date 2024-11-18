@@ -360,7 +360,7 @@ body, h1, h2, p, ul, li {
 }
 
 .modal-content form input {
-    width: 90%;
+    width: 95%;
     padding: 10px; /* Equal spacing */
     margin-bottom: 15px; /* Consistent spacing between fields */
     border: 1px solid #ccc;
