@@ -1,5 +1,4 @@
-//const lambdaUrl = "https://d7hw4tuvig.execute-api.eu-west-1.amazonaws.com"; // Replace with your actual Lambda URL
-const lambdaUrl = "https://jtygdag0xc.execute-api.eu-west-1.amazonaws.com"; // Replace with your actual Lambda URL
+
 const msg_lambdaUrl = "https://zqnsus7wen4dhahfw3vq5kt6vu0lztaq.lambda-url.eu-west-1.on.aws/gcOpenMessaging"; // Replace with your actual messaging Lambda URL
 const reg_lambdaUrl = "https://km26rzjhrizvzt3gqqa7beqzv40dztid.lambda-url.eu-west-1.on.aws/"; // Replace with your actual register Lambda URL
 const sin_lambdaUrl = "https://kcho7b5kbusvoggsi2hraazzmi0rjzzx.lambda-url.eu-west-1.on.aws/"; // Replace with your actual signin Lambda URL
@@ -80,12 +79,17 @@ async function sendMessage() {
             body: JSON.stringify({ sessionId: sessionId, message: message, user: userId }),
         });
 
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const responseData = await response.json();
 
-        if (responseData.success && responseData.message && responseData.message.text) {
+        // Check for valid success response and message text
+        if (responseData && responseData.success && responseData.message && responseData.message.text) {
             displayMessage(responseData.message.text, "agent"); // Display agent's response
         } else {
-            throw new Error("No valid response from agent");
+            throw new Error("Unexpected response format from server");
         }
 
         messageSentInSession = true;
@@ -93,7 +97,7 @@ async function sendMessage() {
             startPolling();
         }
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Error:", error.message);
         displayMessage("Error sending message. Please try again.", "agent");
     }
 }
