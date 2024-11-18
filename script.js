@@ -1,4 +1,4 @@
-const lambdaUrl = "https://d7hw4tuvig.execute-api.eu-west-1.amazonaws.com/"; // Replace with your actual Lambda URL
+const lambdaUrl = "https://d7hw4tuvig.execute-api.eu-west-1.amazonaws.com"; // Replace with your actual Lambda URL
 
 // Open and close modals
 const registerModal = document.getElementById("register-modal");
