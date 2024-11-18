@@ -214,6 +214,7 @@ body, h1, h2, p, ul, li {
     font-size: 12px;
 }
 
+
 /* Chat Message Styles */
 .message {
     max-width: 75%;
@@ -221,22 +222,28 @@ body, h1, h2, p, ul, li {
     margin-bottom: 10px;
     border-radius: 16px;
     line-height: 1.4;
+    word-wrap: break-word; /* Ensure long text wraps properly */
 }
 
+/* User Message Styling */
 .user-message {
-    background-color: #e1f0ff;
+    background-color: #e1f0ff; /* Light blue for user messages */
     color: #000;
-    align-self: flex-start;
+    align-self: flex-start; /* Align left */
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 16px;
+    text-align: left;
 }
 
+/* Agent Message Styling */
 .agent-message {
-    background-color: #160b09;
+    background-color: #160b09; /* Dark background for agent messages */
     color: #ffffff;
-    align-self: flex-end;
+    align-self: flex-end; /* Align right */
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 16px;
+    text-align: left;
+    padding: 10px;
 }
 
 /* Chat Input Area */
@@ -438,4 +445,6 @@ form button {
 form button:hover {
     background-color: #331a14;
 }
+
+
 
