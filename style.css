@@ -6,25 +6,27 @@ body, h1, h2, p, ul, li {
 }
 
 /* Navigation Bar */
-/* Updated Navigation Bar */
 #navbar {
     background-color: #fff;
-    padding: 2em 0; /* Increase padding to double the height */
+    padding: 1em 2em; /* Adjust padding as needed */
     border-bottom: 1px solid #ddd;
     position: sticky;
     top: 0;
     z-index: 1000;
     display: flex;
-    align-items: center;
+    align-items: center; /* Center navbar items vertically */
+    justify-content: space-between;
 }
 
+/* Navbar Items */
 #navbar ul {
     list-style-type: none;
     display: flex;
-    gap: 3em; /* Increase gap to spread out items */
+    gap: 2em; /* Adjust spacing between items */
     flex-grow: 1;
-    justify-content: center;
+    justify-content: center; /* Center the menu items horizontally */
     margin: 0;
+    align-items: center;
 }
 
 #navbar li {
@@ -35,8 +37,29 @@ body, h1, h2, p, ul, li {
     text-decoration: none;
     color: #000;
     font-weight: bold;
-    font-size: 1.1em; /* Slightly larger font size */
+    font-size: 1.1em;
 }
+
+
+#navbar a:hover {
+    color: #160b09; /* Darker color on hover */
+}
+
+
+
+/* Custom Messaging Switch Placement */
+.switch {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    margin-left: auto; /* Push it to the far right */
+}
+
+
 
 /* Hero Section */
 #hero {
@@ -167,6 +190,7 @@ body, h1, h2, p, ul, li {
     overflow-y: auto;
     background-color: #f7f8fa;
     font-family: 'Poppins', 'Roboto', sans-serif;
+    font-size: 12px;
 }
 
 /* Chat Message Styles */
@@ -178,18 +202,22 @@ body, h1, h2, p, ul, li {
     line-height: 1.4;
 }
 
+/* User Message Styling (aligned to the left) */
 .user-message {
-    background-color: #e1f0ff;
+    background-color: #e1f0ff; /* Light blue for user messages */
     color: #000;
-    align-self: flex-end;
-    border-bottom-right-radius: 0px;
+    align-self: flex-start; /* Align left */
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 16px;
 }
 
+/* Agent Message Styling (aligned to the right) */
 .agent-message {
-    background-color: #160b09;
+    background-color: #160b09; /* Black for agent messages */
     color: #ffffff;
-    align-self: flex-start;
-    border-bottom-left-radius: 0px;
+    align-self: flex-end; /* Align right */
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 16px;
 }
 
 /* Chat Input Area */
@@ -305,3 +333,121 @@ body, h1, h2, p, ul, li {
     transform: translateX(20px);
 }
 
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Add transparency */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', 'Roboto', sans-serif;
+}
+
+.modal-content form input {
+    width: 90%;
+    padding: 10px; /* Equal spacing */
+    margin-bottom: 15px; /* Consistent spacing between fields */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Fix for body overflow with modals */
+body {
+    overflow: auto; /* Ensure scrolling works normally */
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 14px;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #160b09;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #331a14;
+}
+
+
+/* Shared Styling for All Buttons */
+.button-style {
+    background-color: #160b09; /* Default dark theme */
+    color: #fff;
+    padding: 0.6em 2em;
+    border: none;
+    border-radius: 20px; /* Matches rounded corners */
+    cursor: pointer;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button-style:hover {
+    background-color: #331a14;
+    transform: scale(1.05); /* Subtle hover effect */
+}
+
+/* Light Blue Button (Register) */
+#register-btn {
+    background-color: #87ceeb;
+}
+
+#register-btn:hover {
+    background-color: #5bb6e4;
+}
+
+/* Dark Theme Button (Sign-In) */
+#signin-btn {
+    background-color: #160b09;
+}
+
+#signin-btn:hover {
+    background-color: #331a14;
+}
