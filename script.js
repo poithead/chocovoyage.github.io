@@ -103,9 +103,15 @@ async function pollForMessages() {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
 
         if (data.messages && data.messages.length > 0) {
+            // Display each message from Genesys Cloud
             data.messages.forEach((message) => displayMessage(message.text, "agent"));
         }
     } catch (error) {
@@ -113,9 +119,10 @@ async function pollForMessages() {
     }
 }
 
+
 function startPolling() {
     if (messagingToggle.checked && messageSentInSession) {
-        pollingInterval = setInterval(pollForMessages, 5000);
+        pollingInterval = setInterval(pollForMessages, 5000); // Poll every 5 seconds
     }
 }
 
