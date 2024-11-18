@@ -104,20 +104,20 @@ async function pollForMessages() {
             headers: { "Content-Type": "application/json" },
         });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
         const data = await response.json();
 
         if (data.messages && data.messages.length > 0) {
-            // Display each message from Genesys Cloud
-            data.messages.forEach((message) => displayMessage(message.text, "agent"));
+            data.messages.forEach((message) =>
+                displayMessage(message.text, "agent")
+            );
+        } else {
+            console.log("No new messages.");
         }
     } catch (error) {
         console.error("Error polling for messages:", error);
     }
 }
+
 
 
 function startPolling() {
