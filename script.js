@@ -74,7 +74,7 @@ async function sendMessage() {
         const response = await fetch(`${lambdaUrl}?sessionId=${sessionId}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ sessionId, message, user: userId }),
+            body: JSON.stringify({ sessionId: sessionId, message: message, user: userId }),
         });
 
         const responseData = await response.json();
