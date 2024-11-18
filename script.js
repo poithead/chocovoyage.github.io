@@ -69,6 +69,7 @@ async function sendMessage() {
         return;
     }
 
+    // Display the user's message in the chat widget
     displayMessage(message, "user");
     userMessageInput.value = "";
 
@@ -83,15 +84,7 @@ async function sendMessage() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const responseData = await response.json();
-
-        // Check for valid success response and message text
-        if (responseData && responseData.success && responseData.message && responseData.message.text) {
-            displayMessage(responseData.message.text, "agent"); // Display agent's response
-        } else {
-            throw new Error("Unexpected response format from server");
-        }
-
+        // If the POST was successful, start polling for new messages
         messageSentInSession = true;
         if (messagingToggle.checked) {
             startPolling();
