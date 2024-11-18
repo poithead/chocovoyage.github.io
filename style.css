@@ -251,7 +251,7 @@ body, h1, h2, p, ul, li {
 #user-message {
     flex-grow: 1;
     padding: 10px;
-    font-size: 12px;
+    font-size: 13px;
     border: 1px solid #ddd;
     border-radius: 16px;
     outline: none;
