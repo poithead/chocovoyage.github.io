@@ -70,7 +70,7 @@ async function sendMessage() {
     userMessageInput.value = "";
 
     try {
-        const response = await fetch(lambdaUrl, {
+        const response = await fetch(`${lambdaUrl}/gcOpenMessaging?sessionId=${sessionId}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ sessionId, message, user: userId }),
@@ -98,7 +98,7 @@ document.getElementById("send-button").addEventListener("click", sendMessage);
 
 async function pollForMessages() {
     try {
-        const response = await fetch(`${lambdaUrl}?sessionId=${sessionId}`, {
+        const response = await fetch(`${lambdaUrl}/gcOpenMessaging?sessionId=${sessionId}`, {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         });
