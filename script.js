@@ -99,7 +99,7 @@ document.getElementById("send-button").addEventListener("click", sendMessage);
 
 async function pollForMessages() {
     try {
-        const response = await fetch(`${lambdaUrl}/gcOpenMessaging?sessionId=${sessionId}`, {
+        const response = await fetch(`${lambdaUrl}?sessionId=${sessionId}`, {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         });
