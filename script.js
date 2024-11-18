@@ -1,5 +1,5 @@
 //const lambdaUrl = "https://d7hw4tuvig.execute-api.eu-west-1.amazonaws.com"; // Replace with your actual Lambda URL
-const lambdaUrl = "https://d7hw4tuvig.execute-api.eu-west-1.amazonaws.com"; // Replace with your actual Lambda URL
+const lambdaUrl = "https://jtygdag0xc.execute-api.eu-west-1.amazonaws.com"; // Replace with your actual Lambda URL
 
 // Open and close modals
 const registerModal = document.getElementById("register-modal");
@@ -71,7 +71,7 @@ async function sendMessage() {
     userMessageInput.value = "";
 
     try {
-        const response = await fetch(lambdaUrl, {
+        const response = await fetch(`${lambdaUrl}/gcOpenMessaging`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ sessionId: sessionId, message: message, user: userId }),
@@ -99,7 +99,7 @@ document.getElementById("send-button").addEventListener("click", sendMessage);
 
 async function pollForMessages() {
     try {
-        const response = await fetch(lambdaUrl, {
+        const response = await fetch(`${lambdaUrl}/gcOpenMessaging`, {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         });
