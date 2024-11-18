@@ -8,13 +8,13 @@ body, h1, h2, p, ul, li {
 /* Navigation Bar */
 #navbar {
     background-color: #fff;
-    padding: 1em 2em; /* Adjust padding as needed */
+    padding: 1em 2em;
     border-bottom: 1px solid #ddd;
     position: sticky;
     top: 0;
     z-index: 1000;
     display: flex;
-    align-items: center; /* Center navbar items vertically */
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -22,9 +22,9 @@ body, h1, h2, p, ul, li {
 #navbar ul {
     list-style-type: none;
     display: flex;
-    gap: 2em; /* Adjust spacing between items */
+    gap: 2em;
     flex-grow: 1;
-    justify-content: center; /* Center the menu items horizontally */
+    justify-content: center;
     margin: 0;
     align-items: center;
 }
@@ -40,12 +40,9 @@ body, h1, h2, p, ul, li {
     font-size: 1.1em;
 }
 
-
 #navbar a:hover {
-    color: #160b09; /* Darker color on hover */
+    color: #160b09;
 }
-
-
 
 /* Custom Messaging Switch Placement */
 .switch {
@@ -55,19 +52,16 @@ body, h1, h2, p, ul, li {
     font-size: 14px;
     font-weight: 500;
     color: #000;
-    font-family: 'Poppins', 'Roboto', sans-serif;
-    margin-left: auto; /* Push it to the far right */
+    margin-left: auto;
 }
-
-
 
 /* Hero Section */
 #hero {
-    background-image: url('images/chocovoyage_header.png'); /* Replace with your image path */
+    background-image: url('images/chocovoyage_header.png');
     background-size: cover;
     background-position: center;
     color: #fff;
-    height: 400px; /* Adjust the height as needed */
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,7 +74,7 @@ body, h1, h2, p, ul, li {
     padding: 0 1em;
     max-width: 80%;
     font-weight: 700;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Makes text more readable */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Featured Products Section */
@@ -112,27 +106,22 @@ body, h1, h2, p, ul, li {
 }
 
 #featured-products button {
-    background-color: #160b09; /* Dark color to match the page theme */
+    background-color: #160b09;
     color: #fff;
     padding: 0.6em 2em;
     margin-top: 1em;
     border: none;
-    border-radius: 20px; /* Increase border-radius for a more rounded look */
+    border-radius: 20px;
     cursor: pointer;
-    font-family: 'Poppins', 'Roboto', sans-serif; /* Ensure Poppins font is applied */
+    font-family: 'Poppins', 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 1em;
-    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 #featured-products button:hover {
-    background-color: #331a14; /* Slightly lighter color on hover */
-    transform: scale(1.05); /* Subtle scaling effect on hover */
-}
-
-#shop-all-btn:hover {
     background-color: #331a14;
-    font-family: 'Poppins', 'Roboto', sans-serif;
+    transform: scale(1.05);
 }
 
 /* Chat Widget Container */
@@ -150,7 +139,6 @@ body, h1, h2, p, ul, li {
     justify-content: space-between;
     overflow: hidden;
     animation: fadeIn 0.3s ease;
-    font-family: 'Poppins', 'Roboto', sans-serif;
 }
 
 /* Chat Widget Animations */
@@ -164,7 +152,6 @@ body, h1, h2, p, ul, li {
     background-color: #160b09;
     color: #ffffff;
     padding: 12px;
-    font-family: 'Poppins', 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 600;
     text-align: center;
@@ -189,7 +176,6 @@ body, h1, h2, p, ul, li {
     padding: 15px;
     overflow-y: auto;
     background-color: #f7f8fa;
-    font-family: 'Poppins', 'Roboto', sans-serif;
     font-size: 12px;
 }
 
@@ -202,20 +188,18 @@ body, h1, h2, p, ul, li {
     line-height: 1.4;
 }
 
-/* User Message Styling (aligned to the left) */
 .user-message {
-    background-color: #e1f0ff; /* Light blue for user messages */
+    background-color: #e1f0ff;
     color: #000;
-    align-self: flex-start; /* Align left */
+    align-self: flex-start;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 16px;
 }
 
-/* Agent Message Styling (aligned to the right) */
 .agent-message {
-    background-color: #160b09; /* Black for agent messages */
+    background-color: #160b09;
     color: #ffffff;
-    align-self: flex-end; /* Align right */
+    align-self: flex-end;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 16px;
 }
@@ -226,7 +210,6 @@ body, h1, h2, p, ul, li {
     padding: 10px;
     border-top: 1px solid #ddd;
     background-color: #ffffff;
-    font-family: 'Poppins', 'Roboto', sans-serif;
 }
 
 /* Message Input */
@@ -238,7 +221,6 @@ body, h1, h2, p, ul, li {
     border-radius: 16px;
     outline: none;
     resize: none;
-    font-family: 'Poppins', 'Roboto', sans-serif;
 }
 
 /* Send Button */
@@ -252,20 +234,20 @@ body, h1, h2, p, ul, li {
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.2s ease;
-    font-family: 'Poppins', 'Roboto', sans-serif;
 }
 
 #send-button:hover {
     background-color: #331a14;
 }
 
+/* Chat Launcher */
 #chat-launcher {
     position: fixed;
     bottom: 20px;
     right: 20px;
     width: 60px;
     height: 60px;
-    background-color: #160b09; /* Dark background color */
+    background-color: #160b09;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -279,58 +261,9 @@ body, h1, h2, p, ul, li {
     transform: scale(1.1);
 }
 
-/* White Icon in Launcher */
 #chat-launcher-icon {
-    color: #ffffff; /* Set icon color to white */
+    color: #ffffff;
     font-size: 24px;
-}
-
-
-
-/* Position the switch to the far right */
-.switch {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    font-size: 14px;
-    font-weight: 500;
-    color: #000;
-    font-family: 'Poppins', 'Roboto', sans-serif;
-    margin-right: 2em; /* Adds margin to align it to the right side */
-}
-
-.switch input[type="checkbox"] {
-    display: none;
-}
-
-.switch .slider {
-    position: relative;
-    width: 40px;
-    height: 20px;
-    background-color: #ccc;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.switch .slider::before {
-    content: "";
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: white;
-    top: 2px;
-    left: 2px;
-    transition: transform 0.3s;
-}
-
-.switch input[type="checkbox"]:checked + .slider {
-    background-color: #160b09;
-}
-
-.switch input[type="checkbox"]:checked + .slider::before {
-    transform: translateX(20px);
 }
 
 /* Modal Styles */
@@ -343,7 +276,7 @@ body, h1, h2, p, ul, li {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4); /* Add transparency */
+    background-color: rgba(0, 0, 0, 0.4);
     justify-content: center;
     align-items: center;
 }
@@ -356,15 +289,41 @@ body, h1, h2, p, ul, li {
     width: 80%;
     max-width: 400px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: 'Poppins', 'Roboto', sans-serif;
+}
+
+/* Modal Input Fields */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-content form label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
 }
 
 .modal-content form input {
-    width: 95%;
-    padding: 10px; /* Equal spacing */
-    margin-bottom: 15px; /* Consistent spacing between fields */
+    width: 100%;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.modal-content form button {
+    background-color: #160b09;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modal-content form button:hover {
+    background-color: #331a14;
 }
 
 .close-modal {
@@ -374,12 +333,42 @@ body, h1, h2, p, ul, li {
     font-weight: bold;
 }
 
-.close-modal:hover,
-.close-modal:focus {
+.close-modal:hover {
     color: black;
-    text-decoration: none;
     cursor: pointer;
 }
+
+/* Shared Styling for Buttons */
+.button-style {
+    background-color: #160b09;
+    color: #fff;
+    padding: 0.6em 2em;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+.button-style:hover {
+    background-color: #331a14;
+}
+
+#register-btn {
+    background-color: #87ceeb;
+}
+
+#register-btn:hover {
+    background-color: #5bb6e4;
+}
+
+#signin-btn {
+    background-color: #160b09;
+}
+
+#signin-btn:hover {
+    background-color: #331a14
+
 
 /* Fix for body overflow with modals */
 body {
@@ -414,40 +403,3 @@ form button:hover {
     background-color: #331a14;
 }
 
-
-/* Shared Styling for All Buttons */
-.button-style {
-    background-color: #160b09; /* Default dark theme */
-    color: #fff;
-    padding: 0.6em 2em;
-    border: none;
-    border-radius: 20px; /* Matches rounded corners */
-    cursor: pointer;
-    font-family: 'Poppins', 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 1em;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.button-style:hover {
-    background-color: #331a14;
-    transform: scale(1.05); /* Subtle hover effect */
-}
-
-/* Light Blue Button (Register) */
-#register-btn {
-    background-color: #87ceeb;
-}
-
-#register-btn:hover {
-    background-color: #5bb6e4;
-}
-
-/* Dark Theme Button (Sign-In) */
-#signin-btn {
-    background-color: #160b09;
-}
-
-#signin-btn:hover {
-    background-color: #331a14;
-}
