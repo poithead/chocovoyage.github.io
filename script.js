@@ -105,13 +105,17 @@ async function pollForMessages() {
         });
 
         const data = await response.json();
+        console.log("GET response:", data);
 
-        if (data.messages && data.messages.length > 0) {
-            data.messages.forEach((message) =>
-                displayMessage(message.text, "agent")
-            );
+        if (data.success && Array.isArray(data.messages) && data.messages.length > 0) {
+            data.messages.forEach((message) => {
+                console.log("Processing message:", message);
+                if (message.message && message.nickname) {
+                    displayMessage(`${message.nickname}: ${message.message}`, "agent");
+                }
+            });
         } else {
-            console.log("No new messages.");
+            console.log("No new messages found.");
         }
     } catch (error) {
         console.error("Error polling for messages:", error);
@@ -134,13 +138,25 @@ function stopPolling() {
 }
 
 function displayMessage(text, sender) {
+    if (!text || typeof text !== "string") {
+        console.warn("Invalid or empty message text. Skipping display.");
+        return;
+    }
+
+    // Create a new div for the message
     const messageContainer = document.createElement("div");
     messageContainer.classList.add(
         "message",
         sender === "user" ? "user-message" : "agent-message"
     );
     messageContainer.textContent = text;
-    document.getElementById("chat-messages").appendChild(messageContainer);
+
+    // Append the message to the chat-messages container
+    const chatMessages = document.getElementById("chat-messages");
+    chatMessages.appendChild(messageContainer);
+
+    // Scroll to the latest message
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 // Open and close modals
