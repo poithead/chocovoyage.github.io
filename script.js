@@ -1,6 +1,6 @@
 //const lambdaUrl = "https://d7hw4tuvig.execute-api.eu-west-1.amazonaws.com"; // Replace with your actual Lambda URL
 const lambdaUrl = "https://jtygdag0xc.execute-api.eu-west-1.amazonaws.com"; // Replace with your actual Lambda URL
-const msg_lambdaUrl = "https://zqnsus7wen4dhahfw3vq5kt6vu0lztaq.lambda-url.eu-west-1.on.aws/"; // Replace with your actual messaging Lambda URL
+const msg_lambdaUrl = "https://zqnsus7wen4dhahfw3vq5kt6vu0lztaq.lambda-url.eu-west-1.on.aws"; // Replace with your actual messaging Lambda URL
 const reg_lambdaUrl = "https://km26rzjhrizvzt3gqqa7beqzv40dztid.lambda-url.eu-west-1.on.aws/"; // Replace with your actual register Lambda URL
 const sin_lambdaUrl = "https://kcho7b5kbusvoggsi2hraazzmi0rjzzx.lambda-url.eu-west-1.on.aws/"; // Replace with your actual signin Lambda URL
 
@@ -102,7 +102,7 @@ document.getElementById("send-button").addEventListener("click", sendMessage);
 
 async function pollForMessages() {
     try {
-        const response = await fetch(msg_lambdaUrl, {
+        const response = await fetch(`${msg_lambdaUrl}?sessionId=${sessionId}`, {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         });
