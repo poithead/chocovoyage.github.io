@@ -271,7 +271,8 @@ document.getElementById("signin-form").addEventListener("submit", async (event) 
               customAttributes: { visitorPreferredLang: "en" },
               traitsMapper: []
             }
-        };
+        )};        
+    }
         
     function openPage(targetPage) {
         window.location.href = targetPage;
