@@ -3,7 +3,7 @@ let consentGiven = false; // Initialize variable to track if consent is given
 document.addEventListener("DOMContentLoaded", () => {
     const cookieBanner = document.getElementById("cookie-banner");
     const acceptButton = document.getElementById("accept-all");
-    const declineButton = document.getElementById("manage-cookies"); // Rename to "Decline"
+    const declineButton = document.getElementById("decline-all"); // Rename to "Decline"
 
     // Check if the user has already made a decision
     const userConsent = JSON.parse(localStorage.getItem("cookieConsent")) || null;
@@ -46,8 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
                    ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
                  })(window, 'Genesys', 'https://apps.mypurecloud.ie/genesys-bootstrap/genesys.min.js', {
                    environment: 'prod-euw1',
-                   deploymentId: '094148b7-0865-4df2-b0a2-3c10ff5c099a',
-                   debug: true
+                   deploymentId: '094148b7-0865-4df2-b0a2-3c10ff5c099a'
                  });
                  Genesys("subscribe", "Launcher.ready" , function(o){
                  console.log("Launcher Ready! Making visible");
