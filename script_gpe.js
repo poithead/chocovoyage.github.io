@@ -23,7 +23,6 @@
                  });
                  Genesys("subscribe", "Journey.ready" , function(o){
                  console.log("Journey Tracking Ready!");
-                 Genesys("command", "Journey.record", { eventName: "consent_consentGiven" });
                  });
         }
     }
