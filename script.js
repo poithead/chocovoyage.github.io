@@ -264,6 +264,8 @@ document.getElementById("signin-form").addEventListener("submit", async (event) 
 
     function pageOnLoad(Title) {
         
+        consentGiven = JSON.parse(localStorage.getItem("cookieConsent")) || null;
+
         if (consentGiven) {
             loadscripts();
             Genesys("command", "Journey.pageview", {
