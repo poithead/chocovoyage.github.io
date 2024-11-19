@@ -262,6 +262,6 @@ document.getElementById("signin-form").addEventListener("submit", async (event) 
    
     });
 
-        function openProductPage(productPage) {
-            window.location.href = productPage;
-        }
+    function openPage(targetPage) {
+        window.location.href = targetPage;
+    }
