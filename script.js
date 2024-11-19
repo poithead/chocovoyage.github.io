@@ -53,15 +53,18 @@ closeChat.addEventListener("click", () => {
 
 messagingToggle.addEventListener("change", () => {
     chatLauncher.style.display = messagingToggle.checked ? "flex" : "none";
+    const cookieBanner = document.getElementById("cookie-banner");
     if (!messagingToggle.checked) {
         stopPolling();
+        if (!cookieBanner && !consentGiven) {
+            cookieBanner.style.display = "flex";
+        }
     } else if (messageSentInSession) {
         startPolling();
     }
 
     if (messagingToggle.checked) {
         // Close the cookie consent banner/modal
-        const cookieBanner = document.getElementById("cookie-banner");
         if (cookieBanner) {
             cookieBanner.style.display = "none";
         }
