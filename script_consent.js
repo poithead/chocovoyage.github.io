@@ -1,5 +1,3 @@
-let consentGiven = JSON.parse(localStorage.getItem("cookieConsent")) || null;
-
 document.addEventListener("DOMContentLoaded", () => {
     const cookieBanner = document.getElementById("cookie-banner");
     const acceptButton = document.getElementById("accept-all");
