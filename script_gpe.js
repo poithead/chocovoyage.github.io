@@ -2,12 +2,12 @@
     function loadScripts() {
         // Load the script only if consentGiven is true
         const userConsent = JSON.parse(localStorage.getItem("cookieConsent")) || null;
-        cookieConsent = userConsent;
-        if (cookieConsent) {
+        
+        if (userConsent) {
         // Hide the cookie banner if consent has already been given or declined
         cookieBanner.style.display = "none";
     }
-        if (CookieConsent) {
+        if (userConsent) {
            // Load communication-related scripts
                 console.log("Loading communication and tracking scripts");
                
