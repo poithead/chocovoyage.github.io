@@ -30,7 +30,74 @@
             <li><a href="#">Contact</a></li>
             <li><a href="#">Cart</a></li>
         </ul>
+     <li>
+                <button id="register-btn" class="button-style" onclick="openRegisterModal()">Register</button>
+            </li>
+            <li>
+                <button id="signin-btn" class="button-style" onclick="openSignInModal()">Sign In</button>
+            </li>
+        </ul>
+
+        <!-- Custom Messaging Toggle -->
+        <label class="switch">
+            <span>Custom Messaging</span>
+            <input type="checkbox" id="messaging-toggle">
+            <span class="slider"></span>
+        </label>
     </nav>
+
+    <!-- Registration Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-register">&times;</span>
+            <h2>Register</h2>
+            <form id="register-form">
+                <label for="register-firstname">First Name</label>
+                <input type="text" id="register-firstname" name="firstName" required>
+
+                <label for="register-lastname">Last Name</label>
+                <input type="text" id="register-lastname" name="lastName" required>
+
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" name="email" required>
+
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" name="password" required>
+
+                <button type="submit" class="button-style">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign-In Modal -->
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-signin">&times;</span>
+            <h2>Sign In</h2>
+            <form id="signin-form">
+                <label for="signin-email">Email</label>
+                <input type="email" id="signin-email" name="email" required>
+
+                <label for="signin-password">Password</label>
+                <input type="password" id="signin-password" name="password" required>
+
+                <button type="submit" class="button-style">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-banner-content">
+        <p>
+            We use cookies to enhance your experience. You can choose to accept or decline cookies.
+        </p>
+        <div class="cookie-banner-buttons">
+            <button id="accept-all" class="button-style">Accept</button>
+            <button id="decline-all" class="button-style">Decline</button>
+        </div>
+    </div>
+</div>
+
 
     <!-- Products Section -->
     <section id="all-products" class="products-section">
