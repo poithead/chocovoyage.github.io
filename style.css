@@ -492,13 +492,13 @@ form button:hover {
     color: #fff; /* White text on hover */
 }
   
-  /* Cookie Modal */
+/* Cookie Modal */
 #cookie-modal {
     display: none;
     position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
     width: 90%;
     max-width: 400px;
     background-color: #fff;
@@ -508,7 +508,7 @@ form button:hover {
     padding: 1.5em;
 }
 
-/* Cookie Modal Header */
+/* Modal Header */
 #cookie-modal h2 {
     text-align: center;
     font-family: 'Poppins', 'Roboto', sans-serif;
@@ -521,29 +521,32 @@ form button:hover {
     display: flex;
     flex-direction: column;
     gap: 15px;
-}
-  
-/* Label and Checkbox Inline Styling */
-#cookie-form label {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Space between the checkbox and label */
     font-family: 'Poppins', 'Roboto', sans-serif;
-    color: #160b09;
 }
 
-/* Modal Buttons */
+/* Label and Checkbox Styling */
+#cookie-form label {
+    display: flex;
+    align-items: center; /* Align checkbox and label text */
+    gap: 10px; /* Space between checkbox and label */
+    color: #160b09;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Cookie Modal Buttons */
 .cookie-modal-buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 1.5em;
 }
 
+/* Button Styling */
 .cookie-modal-buttons button {
     background-color: #fff;
     color: #160b09;
     border: 1px solid #160b09;
-    padding: 0.6em 1.2em;
+    padding: 0.6em 1.5em;
     border-radius: 20px;
     cursor: pointer;
     font-family: 'Poppins', 'Roboto', sans-serif;
@@ -556,6 +559,12 @@ form button:hover {
     background-color: #160b09;
     color: #fff;
 }
+
+/* Modal Spacing Fix */
+.modal-content {
+    padding: 1em 1.5em;
+}
+
 
 /*<i class="fas fa-user-circle"></i>*/
 
