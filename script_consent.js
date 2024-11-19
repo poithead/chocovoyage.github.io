@@ -1,4 +1,4 @@
-let consentGiven = false; // Initialize variable to track if consent is given
+let consentGiven = JSON.parse(localStorage.getItem("cookieConsent")) || null;
 
 document.addEventListener("DOMContentLoaded", () => {
     const cookieBanner = document.getElementById("cookie-banner");
@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Accept All Button (Now "Accept")
     acceptButton.addEventListener("click", () => {
         console.log("User clicked Accept");
-        consentGiven = true; // Set consentGiven to true
         localStorage.setItem("cookieConsent", true); // Save consent in localStorage
+        consentGiven = true; // Set consentGiven to true
         loadScripts(); // Load scripts since consent is given
         cookieBanner.style.display = "none"; // Hide the cookie banner
     });
@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Decline Button
     declineButton.addEventListener("click", () => {
         console.log("User clicked Decline");
-        consentGiven = false; // Set consentGiven to false
         localStorage.setItem("cookieConsent", false); // Save decline in localStorage
+        consentGiven = false; // Set consentGiven to false
         cookieBanner.style.display = "none"; // Just hide the cookie banner
     });
    
