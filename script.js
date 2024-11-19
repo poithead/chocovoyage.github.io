@@ -58,6 +58,32 @@ messagingToggle.addEventListener("change", () => {
     } else if (messageSentInSession) {
         startPolling();
     }
+
+    if (messagingToggle.checked) {
+        // Close the cookie consent banner/modal
+        const cookieBanner = document.getElementById("cookie-banner");
+        if (cookieBanner) {
+            cookieBanner.style.display = "none";
+        }
+
+        // Reset consent if already given
+        if (consentGiven) {
+            console.log("Consent revoked as messaging toggle is activated.");
+            consentGiven = false; // Reset the consentGiven variable
+            localStorage.setItem("cookieConsent", false); // Update localStorage
+
+            // Attempt to execute Genesys commands
+            try {
+                Genesys("command", "Messenger.close", {});
+                Genesys("command", "Launcher.hide", {});
+                Genesys("command", "Journey.destroy", {});
+                Genesys("command", "destroy", {});
+                console.log("Genesys commands executed successfully.");
+            } catch (error) {
+                console.error("Error executing Genesys commands:", error);
+            }
+        }
+    }
 });
 
 chatLauncher.addEventListener("click", openChat);
