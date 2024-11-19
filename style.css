@@ -411,7 +411,7 @@ body, h1, h2, p, ul, li {
 
 #signin-btn:hover {
     background-color: #331a14
-
+}
 
 /* Fix for body overflow with modals */
 body {
@@ -445,6 +445,102 @@ form button {
 form button:hover {
     background-color: #331a14;
 }
+
+/* Floating Cookie Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    max-width: 90%;
+    background-color: #160b09; /* Dark background color */
+    color: #fff; /* White text */
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Banner Content */
+  .cookie-banner-content {
+    max-width: 70%;
+    font-size: 1em;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    padding: 10px;
+  }
+  
+ /* Cookie Banner Buttons */
+.cookie-banner-buttons button {
+    background-color: #fff; /* White background */
+    color: #160b09; /* Dark text */
+    border: 1px solid #160b09; /* Dark border */
+    padding: 0.6em 1.2em;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Poppins', 'Roboto', sans-serif; /* Font styling */
+    font-weight: 500;
+    font-size: 1em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    margin-top: 10px;
+}
+
+.cookie-banner-buttons button:hover {
+    background-color: #160b09; /* Dark background on hover */
+    color: #fff; /* White text on hover */
+}
+  
+  /* Cookie Modal */
+  #cookie-modal {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    padding: 1.5em;
+  }
+  
+  /* Modal Buttons */
+  .cookie-modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+  }
+  
+  /* Cookie Modal Buttons */
+.cookie-modal-buttons button {
+    background-color: #fff;
+    color: #160b09;
+    border: 1px solid #160b09;
+    padding: 0.6em 1.2em;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cookie-modal-buttons button:hover {
+    background-color: #160b09;
+    color: #fff;
+}
+  .modal-content h2 {
+    text-align: center;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    color: #160b09;
+  }
+
+
+/*<i class="fas fa-user-circle"></i>*/
 
 
 
