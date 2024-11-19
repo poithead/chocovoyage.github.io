@@ -78,7 +78,11 @@ messagingToggle.addEventListener("change", () => {
             // Attempt to execute Genesys commands
             try {
                 Genesys("command", "Messenger.clear", {});
-                Genesys("command", "Journey.clear", {});
+                const activeSessions = Object.keys(localStorage).filter((key) => key.includes(':gcmcsessionActive'))
+                if (activeSessions.length > 0) {
+                localStorage.removeItem(activeSessions[0]);
+                };
+                Genesys('command', 'Identifiers.purgeAll', {});
                 console.log("Genesys commands executed successfully.");
             } catch (error) {
                 console.error("Error executing Genesys commands:", error);
