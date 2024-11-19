@@ -78,6 +78,7 @@ messagingToggle.addEventListener("change", () => {
             // Attempt to execute Genesys commands
             try {
                 Genesys("command", "Messenger.clear", {});
+                Genesys("command", "Journey.clear", {});
                 console.log("Genesys commands executed successfully.");
             } catch (error) {
                 console.error("Error executing Genesys commands:", error);
