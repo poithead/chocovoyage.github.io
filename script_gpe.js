@@ -65,16 +65,32 @@
             if (consent.communication || (consent.communication && consent.tracking)) {
                 // Load communication-related scripts
                 console.log("Loading communication scripts");
-                const script = document.createElement("script");
-                script.type = "text/javascript";
-                script.charset = "utf-8";
-                script.src = "https://apps.mypurecloud.ie/genesys-bootstrap/genesys.min.js";
-                script.onload = () =>
-                    Genesys("init", {
-                        environment: "euw1",
-                        deploymentId: "094148b7-0865-4df2-b0a2-3c10ff5c099a",
-                    });
-                document.head.appendChild(script);
+                //const script = document.createElement("script");
+                //script.type = "text/javascript charset=utf-8";
+                //script.src = "https://apps.mypurecloud.ie/genesys-bootstrap/genesys.min.js";
+                //script.onload = () =>
+                //    Genesys("init", {
+                //       environment: "prod-euw1",
+                //        deploymentId: "094148b7-0865-4df2-b0a2-3c10ff5c099a",
+                //    });
+                //document.head.appendChild(script);
+                //Genesys("subscribe", "Launcher.ready" , function(o){ console.log("The queue works!"); });
+
+                
+                 (function (g, e, n, es, ys) {
+                   g['_genesysJs'] = e;
+                   g[e] = g[e] || function () {
+                     (g[e].q = g[e].q || []).push(arguments)
+                   };
+                   g[e].t = 1 * new Date();
+                   g[e].c = es;
+                   ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+                 })(window, 'Genesys', 'https://apps.mypurecloud.ie/genesys-bootstrap/genesys.min.js', {
+                   environment: 'prod-euw1',
+                   deploymentId: '094148b7-0865-4df2-b0a2-3c10ff5c099a',
+                   debug: true
+                 });
+
             }
     
             if (consent.tracking && !consent.communication) {
