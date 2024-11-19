@@ -14,6 +14,7 @@ const closeChat = document.getElementById("close-chat");
 const userMessageInput = document.getElementById("user-message");
 const messagingToggle = document.getElementById("messaging-toggle");
 
+let consentGiven = JSON.parse(localStorage.getItem("cookieConsent")) || null;
 
 // Generate sessionId and userId
 let sessionId = localStorage.getItem("sessionId") || Math.floor(10000000 + Math.random() * 90000000).toString();
