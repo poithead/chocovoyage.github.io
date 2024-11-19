@@ -493,7 +493,7 @@ form button:hover {
 }
   
   /* Cookie Modal */
-  #cookie-modal {
+#cookie-modal {
     display: none;
     position: fixed;
     bottom: 20px;
@@ -506,16 +506,39 @@ form button:hover {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 2000;
     padding: 1.5em;
-  }
+}
+
+/* Cookie Modal Header */
+#cookie-modal h2 {
+    text-align: center;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    color: #160b09;
+    margin-bottom: 1em;
+}
+
+/* Modal Form Styling */
+#cookie-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
   
-  /* Modal Buttons */
-  .cookie-modal-buttons {
+/* Label and Checkbox Inline Styling */
+#cookie-form label {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between the checkbox and label */
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    color: #160b09;
+}
+
+/* Modal Buttons */
+.cookie-modal-buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 1em;
-  }
-  
-  /* Cookie Modal Buttons */
+    margin-top: 1.5em;
+}
+
 .cookie-modal-buttons button {
     background-color: #fff;
     color: #160b09;
@@ -533,12 +556,6 @@ form button:hover {
     background-color: #160b09;
     color: #fff;
 }
-  .modal-content h2 {
-    text-align: center;
-    font-family: 'Poppins', 'Roboto', sans-serif;
-    color: #160b09;
-  }
-
 
 /*<i class="fas fa-user-circle"></i>*/
 
