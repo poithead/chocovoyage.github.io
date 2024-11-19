@@ -1,6 +1,6 @@
 const msg_lambdaUrl = "https://zqnsus7wen4dhahfw3vq5kt6vu0lztaq.lambda-url.eu-west-1.on.aws/"; // Replace with your actual messaging Lambda URL
-const reg_lambdaUrl = "https://km26rzjhrizvzt3gqqa7beqzv40dztid.lambda-url.eu-west-1.on.aws"; // Replace with your actual register Lambda URL
-const sin_lambdaUrl = "https://kcho7b5kbusvoggsi2hraazzmi0rjzzx.lambda-url.eu-west-1.on.aws"; // Replace with your actual signin Lambda URL
+const reg_lambdaUrl = "https://km26rzjhrizvzt3gqqa7beqzv40dztid.lambda-url.eu-west-1.on.aws/"; // Replace with your actual register Lambda URL
+const sin_lambdaUrl = "https://kcho7b5kbusvoggsi2hraazzmi0rjzzx.lambda-url.eu-west-1.on.aws/"; // Replace with your actual signin Lambda URL
 
 // Open and close modals
 const registerModal = document.getElementById("register-modal");
