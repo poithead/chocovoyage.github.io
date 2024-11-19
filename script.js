@@ -77,7 +77,7 @@ messagingToggle.addEventListener("change", () => {
                 Genesys("command", "Messenger.close", {});
                 Genesys("command", "Launcher.hide", {});
                 Genesys("command", "Journey.destroy", {});
-                Genesys("command", "destroy", {});
+                ac('destroy');
                 console.log("Genesys commands executed successfully.");
             } catch (error) {
                 console.error("Error executing Genesys commands:", error);
