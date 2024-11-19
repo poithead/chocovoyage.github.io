@@ -6,7 +6,7 @@
         const acceptButton = document.getElementById("accept-all");
         const declineButton = document.getElementById("decline-all"); // Rename to "Decline"
         
-        if (userConsent) {
+        if (userConsent || !userConsent) {
         // Hide the cookie banner if consent has already been given or declined
         cookieBanner.style.display = "none";
     }
