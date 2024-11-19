@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - ChocoVoyage</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="x-icon">
+
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Import Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Cart</a></li>
+        </ul>
+    </nav>
+
+    <!-- Products Section -->
+    <section id="all-products" class="products-section">
+        <h1>Explore All Products</h1>
+        <div class="product-grid">
+            <!-- Sample Products -->
+            <div class="product" onclick="openProductPage('MexicanHotChocolate.html')">
+                <img src="images/mexican-hot-chocolate.png" alt="Mexican Hot Chocolate">
+                <p>Mexican Hot Chocolate</p>
+                <p><span class="old-price">€20.00</span> €10.00</p>
+            </div>
+            <div class="product" onclick="openProductPage('ItalianCioccolataCaldo.html')">
+                <img src="images/italian-hot-chocolate.png" alt="Italian Cioccolata Caldo">
+                <p>Italian Cioccolata Caldo</p>
+                <p>€19.00</p>
+            </div>
+            <div class="product" onclick="openProductPage('IndianChaiHotChocolate.html')">
+                <img src="images/indian-hot-chocolate.png" alt="Indian Chai Hot Chocolate">
+                <p>Indian Chai Hot Chocolate</p>
+                <p>€21.00</p>
+            </div>
+            <div class="product" onclick="openProductPage('HungarianHotChocolate.html')">
+                <img src="images/hungarian-hot-chocolate.png" alt="Hungarian Forró Csokoládé">
+                <p>Hungarian Forró Csokoládé</p>
+                <p>€19.00</p>
+            </div>
+            <div class="product" onclick="openProductPage('VienneseHotChocolate.html')">
+                <img src="images/viennese-hot-chocolate.png" alt="Viennese Hot Chocolate">
+                <p>Viennese Hot Chocolate</p>
+                <p>€21.00</p>
+            </div>
+            <div class="product" onclick="openProductPage('BelgianHotChocolate.html')">
+                <img src="images/belgian-hot-chocolate.png" alt="Belgian Hot Chocolate">
+                <p>Belgian Hot Chocolate</p>
+                <p>€20.00</p>
+            </div>
+            <div class="product" onclick="openProductPage('ArgentinianHotChocolate.html')">
+                <img src="images/argentinian-hot-chocolate.png" alt="Argentinian Hot Chocolate">
+                <p>Argentinian Hot Chocolate</p>
+                <p>€23.00</p>
+            </div>
+            <div class="product" onclick="openProductPage('SwissHotChocolate.html')">
+                <img src="images/swiss-hot-chocolate.png" alt="Swiss Hot Chocolate">
+                <p>Swiss Hot Chocolate</p>
+                <p>€22.00</p>
+            </div>
+            <div class="product" onclick="openProductPage('SpanishHotChocolate.html')">
+                <img src="images/spanish-hot-chocolate.png" alt="Spanish Hot Chocolate">
+                <p>Spanish Hot Chocolate</p>
+                <p>€18.00</p>
+            </div>
+            <div class="product" onclick="openProductPage('FrenchHotChocolate.html')">
+                <img src="images/french-hot-chocolate.png" alt="French Hot Chocolate">
+                <p>French Hot Chocolate</p>
+                <p>€19.00</p>
+            </div>
+            <div class="product" onclick="openProductPage('PeruvianHotChocolate.html')">
+                <img src="images/peruvian-hot-chocolate.png" alt="Peruvian Hot Chocolate">
+                <p>Peruvian Hot Chocolate</p>
+                <p>€17.00</p>
+            </div>
+            <div class="product" onclick="openProductPage('BrazilianHotChocolate.html')">
+                <img src="images/brazilian-hot-chocolate.png" alt="Brazilian Hot Chocolate">
+                <p>Brazilian Hot Chocolate</p>
+                <p>€18.00</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function openProductPage(productPage) {
+            window.location.href = productPage;
+        }
+    </script>
+</body>
+
+</html>
