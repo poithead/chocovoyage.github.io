@@ -262,6 +262,16 @@ document.getElementById("signin-form").addEventListener("submit", async (event) 
    
     });
 
+    function pageOnLoad(Title) {
+        if (consentGiven) {
+            Genesys("command", "Journey.pageview", {
+              pageTitle: Title,
+              pageLocation: "ChocoVoyage",
+              customAttributes: { visitorPreferredLang: "en" },
+              traitsMapper: []
+            }
+        };
+        
     function openPage(targetPage) {
         window.location.href = targetPage;
     }
