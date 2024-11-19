@@ -2,14 +2,8 @@
     function loadScripts() {
         // Load the script only if consentGiven is true
         const userConsent = JSON.parse(localStorage.getItem("cookieConsent")) || null;
-        const cookieBanner = document.getElementById("cookie-banner");
-        const acceptButton = document.getElementById("accept-all");
-        const declineButton = document.getElementById("decline-all"); // Rename to "Decline"
+        console.log("User Consent is: ", userConsent);
         
-        if (userConsent || !userConsent) {
-        // Hide the cookie banner if consent has already been given or declined
-        cookieBanner.style.display = "none";
-    }
         if (userConsent) {
            // Load communication-related scripts
                 console.log("Loading communication and tracking scripts");
