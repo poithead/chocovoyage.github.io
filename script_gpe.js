@@ -1,7 +1,13 @@
 // Function to load scripts based on consent
     function loadScripts() {
         // Load the script only if consentGiven is true
-        if (consentGiven) {
+        const userConsent = JSON.parse(localStorage.getItem("cookieConsent")) || null;
+        cookieConsent = userConsent;
+        if (cookieConsent) {
+        // Hide the cookie banner if consent has already been given or declined
+        cookieBanner.style.display = "none";
+    }
+        if (CookieConsent) {
            // Load communication-related scripts
                 console.log("Loading communication and tracking scripts");
                
