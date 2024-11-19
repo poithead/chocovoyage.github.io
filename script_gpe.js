@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Check if the user has already made a decision
     const userConsent = JSON.parse(localStorage.getItem("cookieConsent")) || null;
-    if (userConsent !== null) {
+    if (userConsent !== null && !consentGiven) {
         // Hide the cookie banner if consent has already been given or declined
         cookieBanner.style.display = "none";
     }
