@@ -71,7 +71,7 @@
                 script.src = "https://apps.mypurecloud.ie/genesys-bootstrap/genesys.min.js";
                 script.onload = () =>
                     Genesys("init", {
-                        environment: "prod-euw1",
+                        environment: "euw1",
                         deploymentId: "094148b7-0865-4df2-b0a2-3c10ff5c099a",
                     });
                 document.head.appendChild(script);
@@ -86,7 +86,7 @@
                 script.src = "https://apps.mypurecloud.ie/genesys-bootstrap/genesys.min.js";
                 script.onload = () =>
                     Genesys("init", {
-                        environment: "prod-euw1",
+                        environment: "euw1",
                         deploymentId: "094148b7-0865-4df2-b0a2-3c10ff5c099a",
                     });
                 document.head.appendChild(script);
