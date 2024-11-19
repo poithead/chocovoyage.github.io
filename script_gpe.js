@@ -38,7 +38,7 @@
         // Open cookie preferences modal
         manageCookiesButton.addEventListener("click", () => {
             console.log("User clicked Manage Preferences");
-            cookieModal.style.display = "block"; // Show the modal
+            cookieModal.style.display = "flex"; // Use flex for proper centering
         });
     
         // Save cookie preferences
